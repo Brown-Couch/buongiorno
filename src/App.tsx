@@ -1,24 +1,34 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState, useEffect } from 'react'
+import UserList from './components/UserList'
+import Appointments from './components/Appointments'
 import './App.css'
 
 function App() {
+  const [jwt, setJwt] = useState('')
+
+  useEffect(() => {
+    const request = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        auth: {
+          email: 'test@example.com',
+          password: 'test'
+        }
+      })
+    }
+
+    fetch('http://localhost:3000/authentication/login', request)
+      .then(response => response.json())
+      .then(data => setJwt(data.access_token.jwt));
+
+    console.log(jwt);
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserList />
+      <Appointments />
     </div>
   )
 }

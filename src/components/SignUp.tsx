@@ -3,15 +3,16 @@ import './SignUp.css'
 import InputText from './InputText'
 
 export default function SignUp() {
-  const [userData, setUserData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    passwordConfirmation: ''
-  });
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
-  const handleField = (field) => {
+  const handleField = (handlerFunction: any) => {
+    return (event: React.FormEvent<HTMLInputElement>) => {
+      handlerFunction(event.currentTarget.value);
+    }
   };
 
   return (
@@ -23,9 +24,11 @@ export default function SignUp() {
         </div>
         <form action="#">
           <InputText
-            fieldName="firstName"
-            placeholder="Enter your first name"
-            handleField={}/>
+            name="firstName"
+            label="First Name"
+            value={firstName}
+            handler={handleField(setFirstName)}
+            placeholder="Enter your first name" />
           <div className="control">
             <label htmlFor="lastName">Last Name</label>
             <input type="lastName"

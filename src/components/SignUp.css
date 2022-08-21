@@ -32,7 +32,7 @@ html {
 }
 
 .sign-up-form form {
-  width: 90%;
+  width: 85%;
   padding-left: 5%;
 }
 
@@ -129,7 +129,7 @@ html {
 
 .decoration-text-frame blockquote {
   font-size: 2rem;
-  font-weight: 600
+  font-weight: 500
 }
 
 .decoration-text-frame p.quote-name {

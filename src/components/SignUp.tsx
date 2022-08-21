@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
 import './SignUp.css'
 import InputText from './InputText'
+import Password from './Password'
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-
-  const handleField = (handlerFunction: any) => {
-    return (event: React.FormEvent<HTMLInputElement>) => {
-      handlerFunction(event.currentTarget.value);
-    }
-  };
 
   return (
     <div id="sign-up">
@@ -27,32 +21,22 @@ export default function SignUp() {
             name="firstName"
             label="First Name"
             value={firstName}
-            handler={handleField(setFirstName)}
+            handler={setFirstName}
             placeholder="Enter your first name" />
-          <div className="control">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="lastName"
-                   name="lastName"
-                   placeholder="Enter your last name"/>
-          </div>
-          <div className="control">
-            <label htmlFor="email">Email</label>
-            <input type="email"
-                   name="email"
-                   placeholder="Enter your email"/>
-          </div>
-          <div className="control">
-            <label htmlFor="password">Password</label>
-            <input type="password"
-                   name="password"
-                   placeholder="********"/>
-          </div>
-          <div className="control">
-            <label htmlFor="passwordConfirmation">Password Confirmation</label>
-            <input type="passwordConfirmation"
-                   name="passwordConfirmation"
-                   placeholder="********"/>
-          </div>
+          <InputText
+            name="lastName"
+            label="Last Name"
+            value={lastName}
+            handler={setLastName}
+            placeholder="Enter your last name" />
+          <InputText
+            name="email"
+            label="Email"
+            value={email}
+            handler={setEmail}
+            placeholder="Enter your email" />
+          <Password
+            handler={setPassword} />
           <div className="control">
             <input type="submit"
                    value="Sign up"

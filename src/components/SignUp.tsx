@@ -9,6 +9,38 @@ export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    const request = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        registration: {
+          name: firstName,
+          email: lastName,
+          password: password
+        }
+      })
+    }
+
+    fetch('http://localhost:3000/registration/with_credentials', request)
+      .then(async response => {
+        const payload = await response.json()
+
+        if(!response.ok)
+          return Promise.reject(payload.errors)
+
+        return payload;
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(errors => {
+        console.error(errors);
+      })
+  }
+
   return (
     <div id="sign-up">
       <div className="sign-up-form">
@@ -16,9 +48,8 @@ export default function SignUp() {
           <h2>Join us at our Brown Couch</h2>
           <h3>It's very, very brown.</h3>
         </div>
-        <form action="#">
-          <InputText
-            name="firstName"
+        <form onSubmit={handleSubmit}>
+          <InputText name="firstName"
             label="First Name"
             value={firstName}
             handler={setFirstName}
@@ -39,8 +70,8 @@ export default function SignUp() {
             handler={setPassword} />
           <div className="control">
             <input type="submit"
-                   value="Sign up"
-                   className="sign-in"/>
+                   className="sign-in"
+                   value="Sign up" />
           </div>
         </form>
       </div>

@@ -95,7 +95,7 @@ html {
 
 .control-option {
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .control-option label, input, a {
@@ -104,6 +104,10 @@ html {
 
 .control-option a {
   text-align: end;
+}
+
+.control-submit {
+  margin-top: 2rem;
 }
 
 .control .sign-in {

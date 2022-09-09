@@ -70,9 +70,11 @@ export default function Login() {
           <div className="control-option">
             <input type="checkbox" name="rememberMe"/>
             <label htmlFor="rememberMe">Remember for 30 days</label>
+          </div>
+          <div className="control-option">
             <a href="#">Forgot your password?</a>
           </div>
-          <div className="control">
+          <div className="control control-submit">
             <input type="submit" value="Sign in" className="sign-in"/>
           </div>
           <div className="trailer-text">

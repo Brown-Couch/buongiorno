@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import './dashboard.css'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
-import Summary from '../components/Summary'
 
 export default function Dashboard() {
   return (
@@ -15,6 +14,7 @@ export default function Dashboard() {
         </main>
         <aside>
           {/* Secondary outlet goes here */}
+          {/* This may need to be embedded within particular routes */}
           <h3>Your Calendar</h3>
         </aside>
       </div>

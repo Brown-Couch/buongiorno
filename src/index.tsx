@@ -15,6 +15,8 @@ import Messages from "./routes/messages"
 import Payments from "./routes/payments"
 import Settings from "./routes/settings"
 
+import NotFound from "./routes/not_found"
+
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
@@ -32,6 +34,7 @@ root.render(
           <Route path="payments" element={<Payments />}></Route>
           <Route path="settings" element={<Settings />}></Route>
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

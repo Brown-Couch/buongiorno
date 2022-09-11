@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+import './Navigation.css'
+
 export default function Navigation() {
   return (
     <nav>
@@ -5,27 +8,27 @@ export default function Navigation() {
         <ul>
           <li>
             <i className="fa-solid fa-gauge-high"></i>
-            <span>Dashboard</span>
+            <Link to="/dashboard/summary">Summary</Link>
           </li>
           <li>
             <i className="fa-solid fa-school"></i>
-            <span>Sessions</span>
+            <Link to="/dashboard/sessions">Sessions</Link>
           </li>
           <li>
             <i className="fa-solid fa-graduation-cap"></i>
-            <span>Students</span>
+            <Link to="/dashboard/students">Students</Link>
           </li>
           <li>
             <i className="fa-solid fa-message"></i>
-            <span>Messages</span>
+            <Link to="/dashboard/messages">Messages</Link>
           </li>
           <li>
             <i className="fa-solid fa-money-bill-1-wave"></i>
-            <span>Payments</span>
+            <Link to="/dashboard/payments">Payments</Link>
           </li>
           <li>
             <i className="fa-solid fa-gear"></i>
-            <span>Settings</span>
+            <Link to="/dashboard/settings">Settings</Link>
           </li>
         </ul>
       </div>

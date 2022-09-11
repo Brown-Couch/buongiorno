@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css'
-import App from './App'
+
 import reportWebVitals from './reportWebVitals'
 import SignUpRoute from "./routes/sign_up"
 import LoginRoute from "./routes/login"
@@ -33,7 +33,6 @@ root.render(
           <Route path="settings" element={<Settings />}></Route>
         </Route>
       </Routes>
-      <App />
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import './dashboard.css'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
@@ -10,8 +11,7 @@ export default function Dashboard() {
       <div id="dashboard">
         <Navigation />
         <main>
-          <Summary />
-          {/* Outlet goes here */}
+          <Outlet />
         </main>
         <aside>
           {/* Secondary outlet goes here */}

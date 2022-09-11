@@ -42,38 +42,6 @@ main {
   flex-flow: row;
 }
 
-.header-card {
-  flex-grow: 1;
-  margin: 0.75rem 0.75rem;
-  border-radius: 20px;
-  padding: 1.5rem;
-  text-align: center;
-  font-weight: 500;
-  font-size: x-large;
-}
-
-.card-1 {
-  background-color: #484848;
-  color: #FCFCFC;
-}
-
-.card-2 {
-  background-color: #FFE7D6;
-}
-
-.card-3 {
-  background-color: #D6D7FF;
-}
-
-.callout {
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-.description {
-  font-size: 1.2rem;
-}
-
 .dashboard-card .title {
   font-size: larger;
   font-weight: 500;

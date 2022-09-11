@@ -1,19 +1,21 @@
+import HeaderCard from "../components/dashboard/HeaderCard"
+
 export default function Summary() {
   return (
     <>
       <div className="dashboard-card header-cards">
-        <div className="header-card card-1">
-          <div className="callout">4</div>
-          <div className="description">Sessions left</div>
-        </div>
-        <div className="header-card card-2">
-          <div className="callout">2</div>
-          <div className="description">New messages</div>
-        </div>
-        <div className="header-card card-3">
-          <div className="callout">15</div>
-          <div className="description">Total sessions</div>
-        </div>
+        <HeaderCard
+          position={1}
+          callout={4}
+          description="Sessions Left" />
+        <HeaderCard
+          position={2}
+          callout={2}
+          description="New messages" />
+        <HeaderCard
+          position={3}
+          callout={15}
+          description="Total sessions" />
       </div>
       <div className="dashboard-card">
         <p className="title">Today's classes</p>

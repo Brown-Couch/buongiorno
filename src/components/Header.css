@@ -1,0 +1,21 @@
+header {
+  background-color: #FCFCFC;
+  border-bottom: 1px solid #E3E3E3;
+}
+
+#app-badge {
+  display: flex;
+  flex-flow: row;
+  margin-top: 0.5rem;
+  padding-left: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+#app-badge img {
+  border-radius: 30px;
+  width: 4rem;
+}
+
+.badge h2 {
+  display: inline;
+}

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Login.css'
+import UserContextProvider, { useUserContext } from '../contexts/UserContext'
+import { useNavigate } from 'react-router-dom'
 
-export default function Login() {
+export default function Login(props: any) {
   const [jwt, setJwt] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -45,7 +47,16 @@ export default function Login() {
       });
   }
 
+  const user = useUserContext()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!user.jwt)
+      navigate('/dashboard')
+  })
+
   return (
+    <UserContextProvider value={{jwt: jwt}}>
     <div id="sign-up">
       <div className="sign-up-form">
         <div className="sign-up-title">
@@ -92,5 +103,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </UserContextProvider>
   );
 }

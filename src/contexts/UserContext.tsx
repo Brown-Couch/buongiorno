@@ -1,10 +1,19 @@
 import { createContext, useContext } from 'react'
 
-const UserContext = createContext({})
+interface userInterface {
+  jwt: string
+}
+
+const UserContext = createContext<userInterface>({
+  jwt: ''
+})
 
 export default function UserContextProvider(props: any) {
+  const defaultValue = {
+    jwt: ''
+  }
   return (
-    <UserContext.Provider value={{}}>
+    <UserContext.Provider value={defaultValue}>
       {props.children}
     </UserContext.Provider>
   )

@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css'
-
 import reportWebVitals from './reportWebVitals'
+
+import App from "./App"
 import SignUpRoute from "./routes/sign_up"
 import LoginRoute from "./routes/login"
 import Dashboard from "./routes/dashboard"
@@ -23,17 +24,19 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/" element={<App />}>
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index element ={<Summary />}></Route>
+            <Route path="summary" element={<Summary />}></Route>
+            <Route path="sessions" element={<Sessions />}></Route>
+            <Route path="students" element={<Students />}></Route>
+            <Route path="messages" element={<Messages />}></Route>
+            <Route path="payments" element={<Payments />}></Route>
+            <Route path="settings" element={<Settings />}></Route>
+          </Route>
+        </Route>
         <Route path="/login" element={<LoginRoute />}></Route>
         <Route path="/sign_up" element={<SignUpRoute />}></Route>
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="summary" element={<Summary />}></Route>
-          <Route path="sessions" element={<Sessions />}></Route>
-          <Route path="students" element={<Students />}></Route>
-          <Route path="messages" element={<Messages />}></Route>
-          <Route path="payments" element={<Payments />}></Route>
-          <Route path="settings" element={<Settings />}></Route>
-        </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>

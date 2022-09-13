@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, useContext } from 'react'
 
 const UserContext = createContext({})
 
@@ -9,3 +9,5 @@ export default function UserContextProvider(props: any) {
     </UserContext.Provider>
   )
 }
+
+export const useUserContext = () => useContext(UserContext)

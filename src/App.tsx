@@ -1,12 +1,8 @@
-import { createContext, useContext } from 'react'
 import { Outlet } from 'react-router-dom'
-import UserContextProvider from './contexts/UserContext'
-
-const UserContext = createContext({})
+import UserContextProvider, { useUserContext } from './contexts/UserContext'
 
 export default function App() {
-  const user = useContext(UserContext)
-  console.log(`User: ${user}`);
+  const user = useUserContext()
 
   return (
     <UserContextProvider value={{}}>

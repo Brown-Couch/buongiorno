@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import './Login.css'
-import UserContextProvider, { useUserContext } from '../contexts/UserContext'
+import { useAppConfigContext } from '../contexts/AppConfigContext'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login(props: any) {
-  const [jwt, setJwt] = useState('')
+  const appConfig = useAppConfigContext()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (appConfig.data.jwt) navigate('/dashboard')
+  })
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -39,24 +45,20 @@ export default function Login(props: any) {
         return payload
       })
       .then((data) => {
-        setJwt(data.access_token.jwt)
+        appConfig.setData({
+          ...appConfig.data,
+          jwt: data.access_token.jwt,
+        })
+
+        navigate('/dashboard')
       })
       .catch((error) => {
         console.error(error)
       })
   }
 
-  const user = useUserContext()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    // if(!user.jwt)
-    //   navigate('/dashboard')
-  })
-
   return (
     <div id="sign-up">
-      jwt: {user.appConfig.jwt}
       <div className="sign-up-form">
         <div className="sign-up-title">
           <h2>Welcome back</h2>

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppConfigContextProvider from './contexts/AppConfigContext'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import Buongiorno from './Buongiorno'
 
 import SignUpRoute from './routes/sign_up'
@@ -23,6 +25,7 @@ export default function App() {
 
   return (
     <AppConfigContextProvider value={{ data: data, setData: setData }}>
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Buongiorno />}>

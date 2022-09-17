@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Login.css'
 import { useAppConfigContext } from '../contexts/AppConfigContext'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Login(props: any) {
   const appConfig = useAppConfigContext()
@@ -50,6 +51,7 @@ export default function Login(props: any) {
           jwt: data.access_token.jwt,
         })
 
+        toast.success('Welcome!')
         navigate('/dashboard')
       })
       .catch((error) => {

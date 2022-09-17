@@ -1,15 +1,15 @@
 import './HeaderCard.css'
 
 interface Props {
-  position: number;
-  callout: number;
-  description: string;
+  position: number
+  callout: number
+  description: string
 }
 
 export default function HeaderCard(props: Props) {
-  const {position, callout, description} = props
+  const { position, callout, description } = props
 
-  return(
+  return (
     <>
       <div className={`header-card card-${position}`}>
         <div className="callout">{callout}</div>

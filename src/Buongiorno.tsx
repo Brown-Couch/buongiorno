@@ -7,8 +7,7 @@ export default function Buongiorno() {
   const user = useUserContext()
 
   useEffect(() => {
-    if(!user.jwt)
-      navigate('/login')
+    if (!user.jwt) navigate('/login')
   })
 
   return (

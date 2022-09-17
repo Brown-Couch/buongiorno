@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 import './dashboard.css'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
@@ -18,9 +18,7 @@ export default function Dashboard() {
           <h3>Your Calendar</h3>
         </aside>
       </div>
-      <footer>
-        This is the footer
-      </footer>
+      <footer>This is the footer</footer>
     </>
   )
 }

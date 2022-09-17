@@ -1,7 +1,5 @@
-import Login from "../components/Login"
+import Login from '../components/Login'
 
 export default function LoginRoute() {
-  return (
-      <Login></Login>
-  );
+  return <Login></Login>
 }

@@ -1,5 +1,5 @@
 html {
-  background-color: #E3CBB3;
+  background-color: #e3cbb3;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 12pt;
@@ -11,7 +11,7 @@ html {
   min-height: 800px;
   width: 75%;
   margin: 5% auto 0 auto;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -40,7 +40,7 @@ html {
   grid-column: 2;
   grid-row: 1;
   border-left: 1px solid #777777;
-  background-image: url("./img/brown-couch1.jpg");
+  background-image: url('./img/brown-couch1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -55,7 +55,7 @@ html {
 
 .trailer-text {
   margin-top: 2rem;
-  font-size: 0.90rem;
+  font-size: 0.9rem;
 }
 
 #sign-up h2 {
@@ -76,7 +76,8 @@ html {
   margin-bottom: 1rem;
 }
 
-.control input, label {
+.control input,
+label {
   display: block;
 }
 
@@ -86,7 +87,7 @@ html {
 }
 
 .control input {
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   width: 90%;
   min-height: 2rem;
   border-radius: 5px;
@@ -99,7 +100,9 @@ html {
   margin-bottom: 2rem;
 }
 
-.control-option label, input, a {
+.control-option label,
+input,
+a {
   display: inline;
 }
 
@@ -108,13 +111,13 @@ html {
 }
 
 .control .sign-in {
-  background-color: #C49C6C;
-  border: 2px solid #AE7E46;
+  background-color: #c49c6c;
+  border: 2px solid #ae7e46;
   border-radius: 15px;
   padding: 1rem;
   font-size: 1.2rem;
   font-weight: 400;
-  color: #FCFCFC;
+  color: #fcfcfc;
 }
 
 .decoration-text-frame {
@@ -122,14 +125,14 @@ html {
   font-weight: 400;
   background-color: rgba(214, 177, 136, 0.5);
   backdrop-filter: blur(5px);
-  border: 1px solid #744C2C;
+  border: 1px solid #744c2c;
   border-radius: 6px;
   margin: 2rem;
 }
 
 .decoration-text-frame blockquote {
   font-size: 2rem;
-  font-weight: 500
+  font-weight: 500;
 }
 
 .decoration-text-frame p.quote-name {

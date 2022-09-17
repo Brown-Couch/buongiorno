@@ -1,7 +1,5 @@
-import SignUp from "../components/SignUp"
+import SignUp from '../components/SignUp'
 
 export default function SignUpRoute() {
-  return (
-    <SignUp></SignUp>
-  );
+  return <SignUp></SignUp>
 }

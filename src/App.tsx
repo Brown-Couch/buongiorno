@@ -2,28 +2,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserContextProvider from './contexts/UserContext'
 import Buongiorno from './Buongiorno'
 
-import SignUpRoute from "./routes/sign_up"
-import LoginRoute from "./routes/login"
-import Dashboard from "./routes/dashboard"
+import SignUpRoute from './routes/sign_up'
+import LoginRoute from './routes/login'
+import Dashboard from './routes/dashboard'
 
-import Summary from "./routes/summary"
-import Sessions from "./routes/sessions"
-import Students from "./routes/students"
-import Messages from "./routes/messages"
-import Payments from "./routes/payments"
-import Settings from "./routes/settings"
+import Summary from './routes/summary'
+import Sessions from './routes/sessions'
+import Students from './routes/students'
+import Messages from './routes/messages'
+import Payments from './routes/payments'
+import Settings from './routes/settings'
 
-import NotFound from "./routes/not_found"
+import NotFound from './routes/not_found'
 
 export default function App() {
   return (
-    <UserContextProvider value={{jwt: 'def'}}>
+    <UserContextProvider value={{ jwt: 'def' }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Buongiorno />}>
-            <Route index element ={<Dashboard />}></Route>
+            <Route index element={<Dashboard />}></Route>
             <Route path="dashboard" element={<Dashboard />}>
-              <Route index element ={<Summary />}></Route>
+              <Route index element={<Summary />}></Route>
               <Route path="summary" element={<Summary />}></Route>
               <Route path="sessions" element={<Sessions />}></Route>
               <Route path="students" element={<Students />}></Route>

@@ -1,8 +1,8 @@
 nav {
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   display: flex;
   flex-flow: column;
-  border-right: 1px solid #E3E3E3;
+  border-right: 1px solid #e3e3e3;
 }
 
 nav ul {
@@ -15,12 +15,17 @@ nav ul {
 
 nav ul li {
   margin-bottom: 1rem;
-  color: #4C4C4C;
+  color: #4c4c4c;
 }
 
-nav ul li a, a:focus, a:hover, a:visited, a:link, a:active {
+nav ul li a,
+a:focus,
+a:hover,
+a:visited,
+a:link,
+a:active {
   text-decoration: none;
-  color: #4C4C4C;
+  color: #4c4c4c;
 }
 
 nav ul li:hover {
@@ -35,5 +40,10 @@ nav hr {
   width: 100%;
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 }

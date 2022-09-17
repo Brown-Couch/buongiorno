@@ -5,7 +5,7 @@ interface userInterface {
 }
 
 const UserContext = createContext<userInterface>({
-  jwt: 'default'
+  jwt: 'default',
 })
 
 export default function UserContextProvider(props: any) {

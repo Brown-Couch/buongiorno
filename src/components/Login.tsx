@@ -56,7 +56,7 @@ export default function Login(props: any) {
 
   return (
     <div id="sign-up">
-      jwt: {user.jwt}
+      jwt: {user.appConfig.jwt}
       <div className="sign-up-form">
         <div className="sign-up-title">
           <h2>Welcome back</h2>

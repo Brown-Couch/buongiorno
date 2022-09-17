@@ -1,11 +1,15 @@
 import { createContext, useContext } from 'react'
 
 interface userInterface {
-  jwt: string
+  appConfig: any
+  setAppConfig: any
 }
 
 const UserContext = createContext<userInterface>({
-  jwt: 'default',
+  appConfig: {
+    jwt: ''
+  },
+  setAppConfig: () => {}
 })
 
 export default function UserContextProvider(props: any) {

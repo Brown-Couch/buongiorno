@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserContextProvider from './contexts/UserContext'
 import Buongiorno from './Buongiorno'
@@ -16,8 +17,11 @@ import Settings from './routes/settings'
 import NotFound from './routes/not_found'
 
 export default function App() {
+  const [appConfig, setAppConfig] = useState({
+  })
+
   return (
-    <UserContextProvider value={{ jwt: 'def' }}>
+    <UserContextProvider value={{ appConfig: appConfig, setAppConfig: setAppConfig}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Buongiorno />}>

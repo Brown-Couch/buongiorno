@@ -51,13 +51,13 @@ export default function Login(props: any) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(!user.jwt)
-      navigate('/dashboard')
+    // if(!user.jwt)
+    //   navigate('/dashboard')
   })
 
   return (
-    <UserContextProvider value={{jwt: jwt}}>
     <div id="sign-up">
+      jwt: {user.jwt}
       <div className="sign-up-form">
         <div className="sign-up-title">
           <h2>Welcome back</h2>
@@ -67,16 +67,16 @@ export default function Login(props: any) {
           <div className="control">
             <label htmlFor="email">Email</label>
             <input type="email"
-                   name="email"
-                   placeholder="Enter your email"
-                   onChange={handleEmailChange} />
+              name="email"
+              placeholder="Enter your email"
+              onChange={handleEmailChange} />
           </div>
           <div className="control">
             <label htmlFor="password">Password</label>
             <input type="password"
-                   name="password"
-                   placeholder="********"
-                   onChange={handlePasswordChange} />
+              name="password"
+              placeholder="********"
+              onChange={handlePasswordChange} />
           </div>
           <div className="control-option">
             <input type="checkbox" name="rememberMe"/>
@@ -103,6 +103,5 @@ export default function Login(props: any) {
         </div>
       </div>
     </div>
-    </UserContextProvider>
   );
 }

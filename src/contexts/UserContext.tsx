@@ -5,15 +5,12 @@ interface userInterface {
 }
 
 const UserContext = createContext<userInterface>({
-  jwt: ''
+  jwt: 'default'
 })
 
 export default function UserContextProvider(props: any) {
-  const defaultValue = {
-    jwt: ''
-  }
   return (
-    <UserContext.Provider value={defaultValue}>
+    <UserContext.Provider value={props.value}>
       {props.children}
     </UserContext.Provider>
   )

@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppConfigContextProvider from './contexts/AppConfigContext'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-import Buongiorno from './Buongiorno'
+import 'react-toastify/dist/ReactToastify.css'
 
+import Buongiorno from './Buongiorno'
 import SignUpRoute from './routes/sign_up'
 import LoginRoute from './routes/login'
-import Dashboard from './routes/dashboard'
 
+import Dashboard from './routes/dashboard'
 import Summary from './routes/summary'
 import Sessions from './routes/sessions'
 import Students from './routes/students'

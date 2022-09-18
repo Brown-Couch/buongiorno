@@ -4,7 +4,7 @@ import { useAppConfigContext } from '../contexts/AppConfigContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-export default function Login(props: any) {
+export default function Login() {
   const appConfig = useAppConfigContext()
   const navigate = useNavigate()
 

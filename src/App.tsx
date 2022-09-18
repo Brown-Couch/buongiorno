@@ -19,8 +19,10 @@ import Settings from './routes/settings'
 import NotFound from './routes/not_found'
 
 export default function App() {
+  const jwt = localStorage.getItem('jwt')
+
   const [data, setData] = useState({
-    jwt: '',
+    jwt: jwt,
   })
 
   return (

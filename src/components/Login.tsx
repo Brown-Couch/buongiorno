@@ -51,6 +51,8 @@ export default function Login(props: any) {
           jwt: data.access_token.jwt,
         })
 
+        localStorage.setItem('jwt', data.access_token.jwt)
+
         toast.success('Welcome!')
         navigate('/dashboard')
       })

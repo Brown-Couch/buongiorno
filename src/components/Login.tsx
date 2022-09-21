@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Login.css'
 import { useAppConfigContext } from '../contexts/AppConfigContext'
 import { useNavigate } from 'react-router-dom'
+import { authenticationLogin } from '../api/auth'
 import { toast } from 'react-toastify'
 
 export default function Login() {
@@ -25,40 +26,21 @@ export default function Login() {
 
   const handleLogin = (event: any) => {
     event.preventDefault()
-
-    const request = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        auth: {
-          email: email,
-          password: password,
-        },
-      }),
-    }
-
-    fetch('http://localhost:3000/authentication/login', request)
-      .then(async (response) => {
-        const payload = await response.json()
-
-        if (!response.ok) return Promise.reject(payload.errors)
-
-        return payload
+    authenticationLogin(email, password)
+    .then((data) => {
+      appConfig.setData({
+        ...appConfig.data,
+        jwt: data.access_token.jwt,
       })
-      .then((data) => {
-        appConfig.setData({
-          ...appConfig.data,
-          jwt: data.access_token.jwt,
-        })
 
-        localStorage.setItem('jwt', data.access_token.jwt)
+      localStorage.setItem('jwt', data.access_token.jwt)
 
-        toast.success('Welcome!')
-        navigate('/dashboard')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+      toast.success('Welcome!')
+      navigate('/dashboard')
+    })
+    .catch((error) => {
+      console.error(error)
+    })
   }
 
   return (
@@ -92,7 +74,7 @@ export default function Login() {
             <label htmlFor="rememberMe">Remember for 30 days</label>
           </div>
           <div className="control-option">
-            <a href="#">Forgot your password?</a>
+            <a href="/change_me">Forgot your password?</a>
           </div>
           <div className="control control-submit">
             <input type="submit" value="Sign in" className="sign-in" />

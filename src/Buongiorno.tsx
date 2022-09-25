@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useAppConfigContext } from './contexts/AppConfigContext'
-import { toast } from 'react-toastify'
 import { fetchUser } from './api/auth'
 
 export default function Buongiorno() {

@@ -8,7 +8,7 @@ export interface AppConfig {
 const AppConfigContext = createContext<AppConfig>({
   data: {
     jwt: '',
-    userName: ''
+    userName: '',
   },
   setData: () => {},
 })

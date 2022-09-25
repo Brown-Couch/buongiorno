@@ -27,20 +27,20 @@ export default function Login() {
   const handleLogin = (event: any) => {
     event.preventDefault()
     authenticationLogin(email, password)
-    .then((data) => {
-      appConfig.setData({
-        ...appConfig.data,
-        jwt: data.access_token.jwt,
+      .then((data) => {
+        appConfig.setData({
+          ...appConfig.data,
+          jwt: data.access_token.jwt,
+        })
+
+        localStorage.setItem('jwt', data.access_token.jwt)
+
+        toast.success('Welcome!')
+        navigate('/dashboard')
       })
-
-      localStorage.setItem('jwt', data.access_token.jwt)
-
-      toast.success('Welcome!')
-      navigate('/dashboard')
-    })
-    .catch((error) => {
-      console.error(error)
-    })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   return (

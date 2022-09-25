@@ -12,14 +12,15 @@ export const authenticationLogin = (email: string, password: string) => {
     }),
   }
 
-  return fetch('http://localhost:3000/authentication/login', request)
-    .then(async (response) => {
+  return fetch('http://localhost:3000/authentication/login', request).then(
+    async (response) => {
       const payload = await response.json()
 
       if (!response.ok) return Promise.reject(payload.errors)
 
       return payload
-    })
+    }
+  )
 }
 
 export const fetchUser = (appConfig: AppConfig) => {
@@ -27,16 +28,15 @@ export const fetchUser = (appConfig: AppConfig) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${appConfig.data.jwt}`,
+      Authorization: `Bearer ${appConfig.data.jwt}`,
     },
   }
 
-  return fetch('http://localhost:3000/user', request)
-    .then(async (response) => {
-      const payload = await response.json()
+  return fetch('http://localhost:3000/user', request).then(async (response) => {
+    const payload = await response.json()
 
-      if (!response.ok) return Promise.reject(payload.errors)
+    if (!response.ok) return Promise.reject(payload.errors)
 
-      return payload
-    })
+    return payload
+  })
 }

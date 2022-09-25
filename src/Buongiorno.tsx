@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useAppConfigContext } from './contexts/AppConfigContext'
 import { toast } from 'react-toastify'
+import { fetchUser } from './api/auth'
 
 export default function Buongiorno() {
   const navigate = useNavigate()
@@ -9,39 +10,19 @@ export default function Buongiorno() {
 
   useEffect(() => {
     if (!appConfig.data.jwt) navigate('/login')
-  })
-
-  if(false) {
-    const fetchUser = () => {
-      const request = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${appConfig.data.jwt}`,
-        },
-      }
-
-      fetch('http://localhost:3000/user', request)
-        .then(async (response) => {
-          const payload = await response.json()
-
-          if (!response.ok) return Promise.reject(payload.errors)
-
-          return payload
-        })
-        .then((data) => {
+    if (appConfig.data.jwt && !appConfig.data.userName) {
+      fetchUser(appConfig)
+        .then((data: any) => {
           appConfig.setData({
             ...appConfig.data,
-            userName: data.user_name,
+            userName: data.name,
           })
-
-          toast.success(`Fetched: ${appConfig.data.userName}`)
         })
-        .catch((error) => {
+        .catch((error: any) => {
           console.error(error)
         })
     }
-  }
+  })
 
   return <Outlet />
 }

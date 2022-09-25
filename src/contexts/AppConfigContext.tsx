@@ -1,13 +1,14 @@
 import { createContext, useContext } from 'react'
 
-interface appConfigInterface {
+export interface AppConfig {
   data: any
   setData: any
 }
 
-const AppConfigContext = createContext<appConfigInterface>({
+const AppConfigContext = createContext<AppConfig>({
   data: {
     jwt: '',
+    userName: ''
   },
   setData: () => {},
 })

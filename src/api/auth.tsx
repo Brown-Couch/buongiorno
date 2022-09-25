@@ -1,6 +1,6 @@
 import { AppConfig } from '../contexts/AppConfigContext'
 
-export const authenticationLogin = (email: string, password: string) => {
+export const authenticationLogin = async (email: string, password: string) => {
   const request = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -23,7 +23,7 @@ export const authenticationLogin = (email: string, password: string) => {
   )
 }
 
-export const fetchUser = (appConfig: AppConfig) => {
+export const fetchUser = async (appConfig: AppConfig) => {
   const request = {
     method: 'GET',
     headers: {

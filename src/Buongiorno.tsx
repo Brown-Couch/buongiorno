@@ -9,15 +9,18 @@ export default function Buongiorno() {
 
   useEffect(() => {
     if (!appConfig.data.jwt) navigate('/login')
-    if (appConfig.data.jwt && !appConfig.data.userName) {
+    if (appConfig.data.jwt && !appConfig.data.user) {
       fetchUser(appConfig)
         .then((data: any) => {
           appConfig.setData({
             ...appConfig.data,
-            userName: data.name,
+            user: data,
           })
         })
         .catch((error: any) => {
+          localStorage.clear()
+          appConfig.setData({})
+          navigate('/login')
           console.error(error)
         })
     }

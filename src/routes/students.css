@@ -1,0 +1,30 @@
+/*
+ * Move this CSS into its own component
+ */
+.search-box {
+  display: block;
+}
+
+.search-box {
+  border: 1px solid #e3e3e3;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.search-box * {
+  margin-left: 0.5rem;
+}
+
+.search-box input {
+  width: 90%;
+  border: none;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #4c4c4c;
+  font-family: 'Open Sans';
+}

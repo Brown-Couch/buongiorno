@@ -28,3 +28,15 @@
   color: #4c4c4c;
   font-family: 'Open Sans';
 }
+
+/*
+ * This too
+ */
+.table-view table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-view td, th {
+  padding: 1rem 0.5rem;
+}

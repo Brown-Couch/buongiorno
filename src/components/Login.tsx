@@ -39,6 +39,7 @@ export default function Login() {
         navigate('/dashboard')
       })
       .catch((error) => {
+        toast.error('Woops!')
         console.error(error)
       })
   }

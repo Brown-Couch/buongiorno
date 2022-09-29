@@ -4,8 +4,8 @@ export default function Students() {
   return (
     <div className="dashboard-card">
       <div className="card-header">
-        <h1>Users</h1>
-        <p>30 users</p>
+        <h1>Students</h1>
+        <p>30 students</p>
       </div>
       <div className="search-box">
         <i className="fa-solid fa-magnifying-glass"></i>
@@ -32,6 +32,18 @@ export default function Students() {
               <td>&nbsp;</td>
               <td>Pans Vader</td>
               <td>vader@perrosbonitos.com</td>
+              <td><a href="#">Edit</a></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>Luke Panswalker</td>
+              <td>jedis@panswalker.dev</td>
+              <td><a href="#">Edit</a></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>Phansoka Tano</td>
+              <td>phansoka@tano.test</td>
               <td><a href="#">Edit</a></td>
             </tr>
           </tbody>

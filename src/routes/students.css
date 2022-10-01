@@ -45,3 +45,7 @@
 .table-view tr:nth-child(even) {
   background-color: #eee;
 }
+
+.table-view tbody tr .fa-solid {
+  margin-right: 0.5rem;
+}

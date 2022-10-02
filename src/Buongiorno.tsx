@@ -8,11 +8,8 @@ import { userState } from './atoms/user'
 export default function Buongiorno() {
   const navigate = useNavigate()
   const jwt = useRecoilValue(jwtState)
-  const setJwt = useSetRecoilState(jwtState)
   const user = useRecoilValue(userState)
   const setUser = useSetRecoilState(userState)
-
-  if (!jwt) setJwt(localStorage.getItem('jwt') ?? '')
 
   useEffect(() => {
     if (!jwt) navigate('/login')

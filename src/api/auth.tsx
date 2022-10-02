@@ -1,5 +1,3 @@
-import { AppConfig } from '../contexts/AppConfigContext'
-
 export const authenticationLogin = async (email: string, password: string) => {
   const request = {
     method: 'POST',
@@ -23,12 +21,12 @@ export const authenticationLogin = async (email: string, password: string) => {
   )
 }
 
-export const fetchUser = async (appConfig: AppConfig) => {
+export const fetchUser = async (jwt: string) => {
   const request = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${appConfig.data.jwt}`,
+      Authorization: `Bearer ${jwt}`,
     },
   }
 

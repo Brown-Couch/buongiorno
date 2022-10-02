@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AppConfigContextProvider from './contexts/AppConfigContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -18,15 +16,11 @@ import Settings from './routes/settings'
 
 import NotFound from './routes/not_found'
 
+import { RecoilRoot } from 'recoil';
+
 export default function App() {
-  const jwt = localStorage.getItem('jwt')
-
-  const [data, setData] = useState({
-    jwt: jwt,
-  })
-
   return (
-    <AppConfigContextProvider value={{ data: data, setData: setData }}>
+    <RecoilRoot>
       <ToastContainer />
       <BrowserRouter>
         <Routes>
@@ -47,6 +41,6 @@ export default function App() {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
-    </AppConfigContextProvider>
+  </RecoilRoot>
   )
 }

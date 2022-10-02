@@ -1,25 +1,29 @@
 import { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { useAppConfigContext } from './contexts/AppConfigContext'
 import { fetchUser } from './api/auth'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { jwtState } from './atoms/auth'
+import { userState } from './atoms/user'
 
 export default function Buongiorno() {
   const navigate = useNavigate()
-  const appConfig = useAppConfigContext()
+  const jwt = useRecoilValue(jwtState)
+  const setJwt = useSetRecoilState(jwtState)
+  const user = useRecoilValue(userState)
+  const setUser = useSetRecoilState(userState)
+
+  if(!jwt) setJwt(localStorage.getItem('jwt') ?? '')
 
   useEffect(() => {
-    if (!appConfig.data.jwt) navigate('/login')
-    if (appConfig.data.jwt && !appConfig.data.user) {
-      fetchUser(appConfig)
+    if (!jwt) navigate('/login')
+    if (jwt && !user) {
+      fetchUser(jwt)
         .then((data: any) => {
-          appConfig.setData({
-            ...appConfig.data,
-            user: data,
-          })
+          setUser(data)
         })
         .catch((error: any) => {
           localStorage.clear()
-          appConfig.setData({})
+          setUser({})
           navigate('/login')
           console.error(error)
         })

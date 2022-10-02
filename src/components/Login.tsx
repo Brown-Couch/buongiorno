@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import './Login.css'
-import { useAppConfigContext } from '../contexts/AppConfigContext'
 import { useNavigate } from 'react-router-dom'
 import { authenticationLogin } from '../api/auth'
 import { toast } from 'react-toastify'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { jwtState } from '../atoms/auth'
 
 export default function Login() {
-  const appConfig = useAppConfigContext()
   const navigate = useNavigate()
+  const jwt = useRecoilValue(jwtState)
+  const setJwt = useSetRecoilState(jwtState)
 
   useEffect(() => {
-    if (appConfig.data.jwt) navigate('/dashboard')
+    if (jwt) navigate('/dashboard')
   })
 
   const [email, setEmail] = useState('')
@@ -28,11 +30,7 @@ export default function Login() {
     event.preventDefault()
     authenticationLogin(email, password)
       .then((data) => {
-        appConfig.setData({
-          ...appConfig.data,
-          jwt: data.access_token.jwt,
-        })
-
+        setJwt(data.access_token.jwt)
         localStorage.setItem('jwt', data.access_token.jwt)
 
         toast.success('Welcome!')

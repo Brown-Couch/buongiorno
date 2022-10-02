@@ -16,7 +16,7 @@ import Settings from './routes/settings'
 
 import NotFound from './routes/not_found'
 
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot } from 'recoil'
 
 export default function App() {
   return (
@@ -41,6 +41,6 @@ export default function App() {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
-  </RecoilRoot>
+    </RecoilRoot>
   )
 }

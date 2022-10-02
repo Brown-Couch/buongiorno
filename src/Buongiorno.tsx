@@ -12,7 +12,7 @@ export default function Buongiorno() {
   const user = useRecoilValue(userState)
   const setUser = useSetRecoilState(userState)
 
-  if(!jwt) setJwt(localStorage.getItem('jwt') ?? '')
+  if (!jwt) setJwt(localStorage.getItem('jwt') ?? '')
 
   useEffect(() => {
     if (!jwt) navigate('/login')

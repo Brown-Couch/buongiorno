@@ -8,8 +8,8 @@ export default function CardHeader(props: Props) {
 
   return (
     <div className="card-header">
-      <h1>{ title }</h1>
-      <p>{ subtitle }</p>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
     </div>
   )
 }

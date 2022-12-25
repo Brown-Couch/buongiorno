@@ -1,12 +1,47 @@
 import HeaderCard from '../components/dashboard/HeaderCard'
+import { getSummary } from '../api/summary'
+import { useRecoilValue } from 'recoil'
+import { jwtState } from '../atoms/auth'
+import { useState } from 'react'
+
+interface DashboardSummary {
+  sessionsLeft: number
+  newMessages: number
+  totalSessions: number
+}
 
 export default function Summary() {
+  const jwt = useRecoilValue(jwtState)
+  const [summary, setSummary] = useState<DashboardSummary | null>(null)
+
+  if (jwt && !summary) {
+    getSummary(jwt)
+      .then((data) => {
+        setSummary(data)
+      })
+      .catch((error: any) => {
+        console.error(error)
+      })
+  }
+
   return (
     <>
       <div className="dashboard-card header-cards">
-        <HeaderCard position={1} callout={4} description="Sessions Left" />
-        <HeaderCard position={2} callout={2} description="New messages" />
-        <HeaderCard position={3} callout={15} description="Total sessions" />
+        <HeaderCard
+          position={1}
+          callout={summary?.sessionsLeft}
+          description="Sessions Left"
+        />
+        <HeaderCard
+          position={2}
+          callout={summary?.newMessages}
+          description="New messages"
+        />
+        <HeaderCard
+          position={3}
+          callout={summary?.totalSessions}
+          description="Total sessions"
+        />
       </div>
       <div className="dashboard-card">
         <p className="title">Today's classes</p>

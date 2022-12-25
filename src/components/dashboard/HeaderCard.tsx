@@ -2,7 +2,7 @@ import './HeaderCard.css'
 
 interface Props {
   position: number
-  callout: number
+  callout: number | undefined
   description: string
 }
 
@@ -12,7 +12,7 @@ export default function HeaderCard(props: Props) {
   return (
     <>
       <div className={`header-card card-${position}`}>
-        <div className="callout">{callout}</div>
+        <div className="callout">{callout ?? '-'}</div>
         <div className="description">{description}</div>
       </div>
     </>

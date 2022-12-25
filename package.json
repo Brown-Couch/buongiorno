@@ -23,7 +23,7 @@
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "npx prettier -c .",
+    "lint": "npx prettier -c . -w",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.7.1"
+    "prettier": "^2.8.1"
   }
 }

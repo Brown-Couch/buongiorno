@@ -1,3 +1,5 @@
+import { apiUrl } from './constants'
+
 export const studentsIndex = async (jwt: string) => {
   const request = {
     method: 'GET',
@@ -7,13 +9,11 @@ export const studentsIndex = async (jwt: string) => {
     },
   }
 
-  return fetch('http://localhost:3000/students', request).then(
-    async (response) => {
-      const payload = await response.json()
+  return fetch(`${apiUrl}/students`, request).then(async (response) => {
+    const payload = await response.json()
 
-      if (!response.ok) return Promise.reject(payload.errors)
+    if (!response.ok) return Promise.reject(payload.errors)
 
-      return payload
-    }
-  )
+    return payload
+  })
 }

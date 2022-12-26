@@ -1,3 +1,5 @@
+import { apiUrl } from './constants'
+
 export const getSummary = async (jwt: string) => {
   const request = {
     method: 'GET',
@@ -7,7 +9,7 @@ export const getSummary = async (jwt: string) => {
     },
   }
 
-  return fetch('http://localhost:3000/dashboard/summary', request).then(
+  return fetch(`${apiUrl}/dashboard/summary`, request).then(
     async (response) => {
       const payload = await response.json()
 

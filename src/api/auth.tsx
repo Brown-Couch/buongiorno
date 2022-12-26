@@ -1,3 +1,5 @@
+import { apiUrl } from './constants'
+
 export const authenticationLogin = async (email: string, password: string) => {
   const request = {
     method: 'POST',
@@ -10,7 +12,7 @@ export const authenticationLogin = async (email: string, password: string) => {
     }),
   }
 
-  return fetch('http://localhost:3000/authentication/login', request).then(
+  return fetch(`${apiUrl}/authentication/login`, request).then(
     async (response) => {
       const payload = await response.json()
 
@@ -30,7 +32,7 @@ export const fetchUser = async (jwt: string) => {
     },
   }
 
-  return fetch('http://localhost:3000/user', request).then(async (response) => {
+  return fetch(`${apiUrl}/user`, request).then(async (response) => {
     const payload = await response.json()
 
     if (!response.ok) return Promise.reject(payload.errors)

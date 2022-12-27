@@ -2,7 +2,7 @@ import HeaderCard from '../components/dashboard/HeaderCard'
 import { getSummary } from '../api/summary'
 import { useRecoilValue } from 'recoil'
 import { jwtState } from '../atoms/auth'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface DashboardSummary {
   sessionsLeft: number
@@ -13,11 +13,15 @@ interface DashboardSummary {
 export default function Summary() {
   const jwt = useRecoilValue(jwtState)
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
+  const [fetching, setFetching] = useState(false)
 
-  if (jwt && !summary) {
+  if (!fetching && jwt && !summary) {
+    setFetching(true)
+
     getSummary(jwt)
       .then((data) => {
         setSummary(data)
+        setFetching(false)
       })
       .catch((error: any) => {
         console.error(error)

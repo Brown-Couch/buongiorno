@@ -2,7 +2,7 @@ import HeaderCard from '../components/dashboard/HeaderCard'
 import { getSummary } from '../api/summary'
 import { useRecoilValue } from 'recoil'
 import { jwtState } from '../atoms/auth'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 interface DashboardSummary {
   sessionsLeft: number

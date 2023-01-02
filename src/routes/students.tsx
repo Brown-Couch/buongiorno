@@ -1,8 +1,37 @@
 import './students.css'
 
+import StudentRow from '../components/Students/StudentRow'
 import CardHeader from '../components/dashboard/CardHeader'
 
 export default function Students() {
+  const students = [
+    {
+      id: 1,
+      name: 'Pansi Wan Kenobi',
+      email: 'panzas@perrosbonitos.com'
+    },
+    {
+      id: 2,
+      name: 'Pans Vader',
+      email: 'vader@perrosbonitos.com'
+    },
+    {
+      id: 3,
+      name: 'Luke Panswalker',
+      email: 'jedis@panswalker.dev'
+    },
+    {
+      id: 4,
+      name: 'Phansoka Tano',
+      email: 'phansoka@tano.test'
+    },
+    {
+      id: 5,
+      name: 'Very Long Name Pans Pons Jin',
+      email: 'pansponsjin@jedicouncil.com'
+    }
+  ]
+
   return (
     <div className="dashboard-card">
       <CardHeader title="Students" subtitle="30 students" />
@@ -21,57 +50,13 @@ export default function Students() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>&nbsp;</td>
-              <td>
-                <i className="fa-solid fa-graduation-cap"></i>Pansi Wan Kenobi
-              </td>
-              <td>panzas@perrosbonitos.com</td>
-              <td>
-                <a href="/students/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>
-                <i className="fa-solid fa-graduation-cap"></i>Pans Vader
-              </td>
-              <td>vader@perrosbonitos.com</td>
-              <td>
-                <a href="/students/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>
-                <i className="fa-solid fa-graduation-cap"></i>Luke Panswalker
-              </td>
-              <td>jedis@panswalker.dev</td>
-              <td>
-                <a href="/students/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>
-                <i className="fa-solid fa-graduation-cap"></i>Phansoka Tano
-              </td>
-              <td>phansoka@tano.test</td>
-              <td>
-                <a href="/students/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td>
-                <i className="fa-solid fa-graduation-cap"></i>Very Long Name
-                Pans Pons Jin
-              </td>
-              <td>pansponsjin@jedicouncil.com</td>
-              <td>
-                <a href="/students/edit">Edit</a>
-              </td>
-            </tr>
+            {students.map((student) => {
+              return <StudentRow
+                id={student.id}
+                name={student.name}
+                email={student.email}
+              />
+            })}
           </tbody>
         </table>
       </div>

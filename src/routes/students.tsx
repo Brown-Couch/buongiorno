@@ -1,7 +1,8 @@
 import './students.css'
 
 import StudentRow from '../components/Students/StudentRow'
-import CardHeader from '../components/dashboard/CardHeader'
+import Card from '../components/UI/Card'
+import TableView from '../components/TableView'
 
 export default function Students() {
   const students = [
@@ -33,33 +34,21 @@ export default function Students() {
   ]
 
   return (
-    <div className="dashboard-card">
-      <CardHeader title="Students" subtitle="30 students" />
+    <Card title="Students" subtitle="30 students">
       <div className="search-box">
         <i className="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Search by name" />
       </div>
-      <div className="table-view">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {students.map((student) => {
-              return <StudentRow
-                id={student.id}
-                name={student.name}
-                email={student.email}
-              />
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
+      <TableView
+        headers={['Name', 'Email', 'Actions']}
+        rows={students.map((student) => {
+          return <StudentRow
+            id={student.id}
+            name={student.name}
+            email={student.email}
+          />
+        })}
+      />
+    </Card>
   )
 }
